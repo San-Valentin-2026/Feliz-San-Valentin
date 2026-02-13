@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes - San Valentín</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Fuentes y fondo */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    height: 100%;
+    background-image: url('images/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; /* espacio menú */
+}
+
+/* Menú de navegación */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.nav-bar nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-bar a:hover {
+    background: #ff2d55;
+    box-shadow: 0 0 15px rgba(255,45,85,0.7);
+    transform: scale(1.05);
+}
+
+/* Título */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20px;
+    color: #ff2d55; /* rosa/fucsia más intenso */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+/* Contenedor de mensaje */
+#message-box {
+    background: rgba(0,0,0,0.8);
+    padding: 30px 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+#secret-message {
+    background: rgba(0,0,0,0.6);
+    padding: 30px 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+.fade-in-1 {
+    opacity: 0;
+    animation: appear 1s forwards;
+}
+
+/* Botón */
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ff4966;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #ff2d55;
+}
+
+/* Animación fade */
+#message-box.fade-out {
+    opacity: 0;
+}
+
+#message-box.fade-in {
+    opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <header class="nav-bar">
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="messages.html">Mensajes</a>
+        <a href="gallery.html">Galería</a>
+        <a href="surprise.html">Sorpresa</a>
+    </nav>
+</header>
+
+
+    <div id="secret-message">
+        <h1>Mensajes para tí 💌</h1>
+        Cuando te sientas mal, recuerda estos mensajes 💌 y no olvides que <BR> ¡TE QUIERO!
+
+    </div>
+    
+    <div id="message-box">
+        ¡Haz clic en el botón para recibir un mensaje sorpresa!
+    </div>
+
+    <button id="new-message">Nuevo mensaje</button>
+
+    <script>
+        const messages = [
+            "Eres mi persona favorita 😏",
+            "Gracias por hacerme sonreír todos los días 😊",
+            "Contigo todo se siente más fácil 💖",
+            "Me encantas tal como eres ❤️",
+            "No hay nadie con quien prefiera pasar el tiempo que contigo 😘",
+            "Tu risa es mi sonido favorito 🎶",
+            "Eres la mejor parte de mi día 🌟",
+            "Contigo los días normales se vuelven especiales ✨",
+            "Siempre encuentro una excusa para pensarte 💌",
+            "Me haces querer ser mejor cada día 😎",
+            "No puedo evitar sonreír cuando pienso en ti 😄",
+            "Eres mi caos favorito y no cambiaría nada 😏",
+            "Gracias por ser tú, sin filtros ni poses 😘",
+            "Me encanta cómo haces que todo sea divertido 🎉",
+            "No necesito magia, te tengo a ti ✨",
+            "A tu lado, hasta el silencio se siente cómodo 😌",
+            "Eres mi spoiler favorito de felicidad 😎",
+            "No hay nadie que me haga sentir como tú 💖",
+            "Tu mirada tiene un efecto especial en mí 👀",
+            "Si ser feliz fuera un crimen, contigo sería culpable 😏",
+            "Me fascina cómo conviertes los días normales en recuerdos 💫",
+            "Nunca dejaré de reírme de tus ocurrencias 😂",
+            "Eres mi notificación favorita 📲❤️",
+            "Si existiera un ranking de genialidad, tú ganarías 🏆",
+            "Contigo hasta esperar se siente emocionante ⏳❤️",
+            "Siempre encuentro algo nuevo que me encanta de ti 😘"
+        ];
+
+        const messageBox = document.getElementById('message-box');
+        const button = document.getElementById('new-message');
+
+        button.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            const message = messages[randomIndex];
+
+            // Animación fade
+            messageBox.classList.add('fade-out');
+            setTimeout(() => {
+                messageBox.textContent = message;
+                messageBox.classList.remove('fade-out');
+                messageBox.classList.add('fade-in');
+            }, 300);
+            setTimeout(() => {
+                messageBox.classList.remove('fade-in');
+            }, 600);
+        });
+    </script>
+    
+</body>
+</html>
